@@ -1,799 +1,817 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Rashna R | Data Analyst Portfolio</title>
-
-    <meta name="description"
-          content="Rashna R - Data Analyst portfolio showcasing data analytics projects, dashboards, SQL, Python, Excel and Power BI skills.">
-
-    <meta name="keywords"
-          content="Data Analyst, SQL, Python, Power BI, Excel, Data Visualization, Analytics">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-          rel="stylesheet">
-
-    <style>
-
-        /* ==============================
-           GLOBAL
-        ============================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --bg: #07111f;
-            --bg-soft: #0b1728;
-            --card: rgba(15, 31, 51, 0.72);
-            --card-border: rgba(255,255,255,0.09);
-            --text: #f5f7fb;
-            --muted: #9aa9bd;
-            --accent: #55d6ff;
-            --accent2: #8b5cf6;
-            --success: #4ade80;
-            --shadow: 0 25px 70px rgba(0,0,0,0.35);
-        }
-
-        body {
-            font-family: "Inter", sans-serif;
-            background:
-                radial-gradient(circle at 10% 10%, rgba(85,214,255,0.08), transparent 30%),
-                radial-gradient(circle at 90% 20%, rgba(139,92,246,0.10), transparent 30%),
-                var(--bg);
-
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        .container {
-            width: min(1150px, 92%);
-            margin: auto;
-        }
-
-        section {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 55px;
-        }
-
-        .section-title span {
-            color: var(--accent);
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .section-title h2 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(32px, 5vw, 48px);
-            margin-top: 10px;
-        }
-
-        .section-title p {
-            color: var(--muted);
-            max-width: 650px;
-            margin: 15px auto 0;
-        }
-
-
-        /* ==============================
-           NAVBAR
-        ============================== */
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 999;
-            backdrop-filter: blur(18px);
-            background: rgba(7,17,31,0.72);
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-        }
-
-        nav {
-            height: 75px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 23px;
-            font-weight: 700;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #c8d2df;
-            font-size: 14px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-
-        /* ==============================
-           HERO
-        ============================== */
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 100px;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 70px;
-            align-items: center;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 14px;
-            border: 1px solid rgba(85,214,255,0.25);
-            background: rgba(85,214,255,0.07);
-            border-radius: 50px;
-            color: var(--accent);
-            font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 25px;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--success);
-            box-shadow: 0 0 12px var(--success);
-        }
-
-        .hero h1 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(46px, 7vw, 78px);
-            line-height: 1.03;
-            letter-spacing: -3px;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(90deg, var(--accent), var(--accent2));
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        .hero h2 {
-            font-size: 23px;
-            color: #d7e0eb;
-            margin: 20px 0;
-        }
-
-        .hero p {
-            max-width: 650px;
-            color: var(--muted);
-            font-size: 17px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 32px;
-        }
-
-        .btn {
-            padding: 13px 21px;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 14px;
-            transition: 0.3s;
-            border: 1px solid var(--card-border);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent), #3aa9ff);
-            color: #06101c;
-            border: none;
-        }
-
-        .btn-secondary {
-            background: rgba(255,255,255,0.04);
-            color: white;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(85,214,255,0.15);
-        }
-
-
-        /* ==============================
-           PROFILE
-        ============================== */
-
-        .profile-wrapper {
-            display: flex;
-            justify-content: center;
-            position: relative;
-        }
-
-        .profile-glow {
-            position: absolute;
-            width: 340px;
-            height: 340px;
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
-            filter: blur(90px);
-            opacity: 0.18;
-            border-radius: 50%;
-        }
-
-        .profile-card {
-            position: relative;
-            width: 330px;
-            padding: 15px;
-            border-radius: 30px;
-            background: linear-gradient(
-                145deg,
-                rgba(255,255,255,0.12),
-                rgba(255,255,255,0.03)
-            );
-            border: 1px solid rgba(255,255,255,0.12);
-            box-shadow: var(--shadow);
-            transform: rotate(2deg);
-            transition: 0.5s;
-        }
-
-        .profile-card:hover {
-            transform: rotate(0deg) translateY(-8px);
-        }
-
-        .profile-card img {
-            width: 100%;
-            height: 390px;
-            object-fit: cover;
-            object-position: center;
-            border-radius: 22px;
-        }
-
-        .profile-label {
-            position: absolute;
-            bottom: 28px;
-            left: 28px;
-            right: 28px;
-            padding: 14px 16px;
-            border-radius: 14px;
-            background: rgba(5,12,22,0.82);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255,255,255,0.10);
-        }
-
-        .profile-label strong {
-            display: block;
-            font-size: 15px;
-        }
-
-        .profile-label small {
-            color: var(--muted);
-        }
-
-
-        /* ==============================
-           ABOUT
-        ============================== */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .about-text p {
-            color: var(--muted);
-            margin-bottom: 16px;
-        }
-
-        .highlight {
-            color: var(--accent);
-            font-weight: 700;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
-            gap: 16px;
-        }
-
-        .stat-card {
-            padding: 25px;
-            border-radius: 18px;
-            background: var(--card);
-            border: 1px solid var(--card-border);
-            backdrop-filter: blur(15px);
-            transition: 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(85,214,255,0.3);
-        }
-
-        .stat-card h3 {
-            font-size: 30px;
-            color: var(--accent);
-        }
-
-        .stat-card p {
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-
-        /* ==============================
-           SKILLS
-        ============================== */
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 18px;
-        }
-
-        .skill-card {
-            padding: 28px 20px;
-            text-align: center;
-            background: var(--card);
-            border: 1px solid var(--card-border);
-            border-radius: 18px;
-            transition: 0.35s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(85,214,255,0.35);
-        }
-
-        .skill-icon {
-            font-size: 34px;
-            margin-bottom: 12px;
-        }
-
-        .skill-card h3 {
-            font-size: 16px;
-        }
-
-        .skill-card p {
-            color: var(--muted);
-            font-size: 12px;
-            margin-top: 5px;
-        }
-
-
-        /* ==============================
-           PROJECTS
-        ============================== */
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 24px;
-        }
-
-        .project-card {
-            background: var(--card);
-            border: 1px solid var(--card-border);
-            border-radius: 22px;
-            overflow: hidden;
-            transition: 0.4s;
-            backdrop-filter: blur(15px);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(85,214,255,0.35);
-            box-shadow: var(--shadow);
-        }
-
-        .project-image {
-            height: 210px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.5s;
-        }
-
-        .project-card:hover .project-image img {
-            transform: scale(1.08);
-        }
-
-        .project-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                to top,
-                rgba(4,10,18,0.8),
-                transparent
-            );
-        }
-
-        .project-content {
-            padding: 25px;
-        }
-
-        .project-tag {
-            display: inline-block;
-            padding: 5px 10px;
-            border-radius: 50px;
-            background: rgba(85,214,255,0.08);
-            color: var(--accent);
-            font-size: 11px;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .project-content h3 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-
-        .project-content p {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 7px;
-            margin-top: 18px;
-        }
-
-        .tech-stack span {
-            font-size: 11px;
-            padding: 5px 8px;
-            border-radius: 6px;
-            background: rgba(255,255,255,0.06);
-            color: #c7d3e1;
-        }
-
-        .project-link {
-            display: inline-block;
-            margin-top: 20px;
-            color: var(--accent);
-            font-size: 13px;
-            font-weight: 700;
-        }
-
-
-        /* ==============================
-           PROCESS
-        ============================== */
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 20px;
-        }
-
-        .process-card {
-            padding: 25px;
-            border-radius: 18px;
-            background: var(--card);
-            border: 1px solid var(--card-border);
-        }
-
-        .process-number {
-            font-size: 35px;
-            font-weight: 800;
-            color: rgba(85,214,255,0.25);
-        }
-
-        .process-card h3 {
-            margin: 10px 0;
-        }
-
-        .process-card p {
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-
-        /* ==============================
-           CONTACT
-        ============================== */
-
-        .contact-box {
-            max-width: 850px;
-            margin: auto;
-            padding: 55px;
-            text-align: center;
-            border-radius: 28px;
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(85,214,255,0.09),
-                    rgba(139,92,246,0.08)
-                );
-            border: 1px solid var(--card-border);
-        }
-
-        .contact-box h2 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 38px;
-        }
-
-        .contact-box p {
-            color: var(--muted);
-            max-width: 600px;
-            margin: 15px auto 25px;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-
-        /* ==============================
-           FOOTER
-        ============================== */
-
-        footer {
-            padding: 35px 0;
-            border-top: 1px solid rgba(255,255,255,0.07);
-            text-align: center;
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-
-        /* ==============================
-           ANIMATION
-        ============================== */
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: 0.8s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-
-        /* ==============================
-           MOBILE
-        ============================== */
-
-        @media(max-width: 900px) {
-
-            .hero-grid,
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                text-align: center;
-            }
-
-            .hero p {
-                margin: auto;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .profile-wrapper {
-                margin-top: 30px;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .process-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-
-            .nav-links {
-                display: none;
-            }
-        }
-
-        @media(max-width: 550px) {
-
-            section {
-                padding: 75px 0;
-            }
-
-            .hero h1 {
-                letter-spacing: -2px;
-            }
-
-            .profile-card {
-                width: 290px;
-            }
-
-            .profile-card img {
-                height: 340px;
-            }
-
-            .skills-grid,
-            .process-grid,
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-box {
-                padding: 35px 20px;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rashna R | Data Analyst Portfolio</title>
+
+<meta name="description"
+content="Rashna R — Aspiring Data Analyst skilled in Python, SQL, Power BI, Machine Learning and Data Visualization.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#050b16;
+    --bg2:#081225;
+    --card:rgba(255,255,255,0.045);
+    --border:rgba(255,255,255,0.09);
+    --text:#f5f7fb;
+    --muted:#9ca9bd;
+    --blue:#48c7ff;
+    --purple:#8c6cff;
+    --cyan:#45e0ff;
+    --green:#4ade80;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(circle at 10% 10%,rgba(72,199,255,.10),transparent 30%),
+      radial-gradient(circle at 90% 30%,rgba(140,108,255,.10),transparent 30%),
+      var(--bg);
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+      linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+    background-size:70px 70px;
+    mask-image:linear-gradient(to bottom,black,transparent 90%);
+    z-index:-1;
+}
+
+/* CURSOR GLOW */
+
+.cursor{
+    position:fixed;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    pointer-events:none;
+    background:radial-gradient(
+        circle,
+        rgba(72,199,255,.10),
+        transparent 65%
+    );
+    transform:translate(-50%,-50%);
+    z-index:-1;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    background:rgba(5,11,22,.72);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border);
+    z-index:1000;
+}
+
+.logo{
+    font-family:"Space Grotesk";
+    font-size:25px;
+    font-weight:700;
+}
+
+.logo span{
+    color:var(--blue);
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:32px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#c6cfdd;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:white;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    padding:150px 7% 80px;
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    align-items:center;
+    gap:70px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 16px;
+    border:1px solid rgba(72,199,255,.25);
+    background:rgba(72,199,255,.07);
+    border-radius:30px;
+    color:#63d4ff;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:25px;
+}
+
+.badge-dot{
+    width:8px;
+    height:8px;
+    background:var(--green);
+    border-radius:50%;
+    box-shadow:0 0 12px var(--green);
+}
+
+.hero h1{
+    font-family:"Space Grotesk";
+    font-size:clamp(52px,7vw,88px);
+    line-height:.98;
+    letter-spacing:-4px;
+    margin-bottom:25px;
+}
+
+.gradient-text{
+    background:linear-gradient(
+        90deg,
+        #45c9ff,
+        #738bff,
+        #9c6cff
+    );
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero-subtitle{
+    font-size:22px;
+    font-weight:600;
+    color:#dce5f2;
+    margin-bottom:20px;
+}
+
+.hero-description{
+    max-width:650px;
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.8;
+    margin-bottom:32px;
+}
+
+.typing{
+    color:var(--blue);
+    font-weight:700;
+}
+
+.buttons{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 21px;
+    border-radius:12px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:700;
+    border:1px solid var(--border);
+    transition:.3s;
+    cursor:pointer;
+}
+
+.btn-primary{
+    color:#04101a;
+    background:linear-gradient(135deg,#45c9ff,#5c9cff);
+    box-shadow:0 10px 35px rgba(72,199,255,.20);
+}
+
+.btn-secondary{
+    color:white;
+    background:rgba(255,255,255,.04);
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+/* PROFILE */
+
+.profile-area{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.profile-ring{
+    position:relative;
+    width:390px;
+    height:390px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.profile-ring::before{
+    content:"";
+    position:absolute;
+    inset:-25px;
+    border-radius:50%;
+    background:
+      conic-gradient(
+        from 0deg,
+        transparent,
+        rgba(72,199,255,.65),
+        transparent,
+        rgba(140,108,255,.65),
+        transparent
+      );
+    filter:blur(2px);
+    animation:rotate 10s linear infinite;
+}
+
+.profile-ring::after{
+    content:"";
+    position:absolute;
+    inset:-5px;
+    border-radius:50%;
+    background:var(--bg);
+}
+
+.profile{
+    width:350px;
+    height:350px;
+    object-fit:cover;
+    border-radius:50%;
+    position:relative;
+    z-index:2;
+    border:5px solid rgba(255,255,255,.10);
+    box-shadow:
+      0 0 70px rgba(72,199,255,.18),
+      0 25px 80px rgba(0,0,0,.45);
+    transition:.5s;
+}
+
+.profile:hover{
+    transform:scale(1.035);
+}
+
+@keyframes rotate{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* FLOATING TAGS */
+
+.float-tag{
+    position:absolute;
+    z-index:5;
+    padding:11px 15px;
+    border:1px solid var(--border);
+    background:rgba(10,18,34,.82);
+    backdrop-filter:blur(12px);
+    border-radius:12px;
+    font-size:12px;
+    font-weight:700;
+    color:#dce8f8;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+    animation:float 4s ease-in-out infinite;
+}
+
+.tag1{
+    top:15px;
+    left:0;
+}
+
+.tag2{
+    bottom:30px;
+    right:-5px;
+    animation-delay:1s;
+}
+
+.tag3{
+    bottom:70px;
+    left:-25px;
+    animation-delay:2s;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-10px)}
+}
+
+/* SECTIONS */
+
+section{
+    padding:110px 7%;
+}
+
+.section-heading{
+    max-width:700px;
+    margin-bottom:55px;
+}
+
+.eyebrow{
+    color:var(--blue);
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    margin-bottom:14px;
+}
+
+.section-heading h2{
+    font-family:"Space Grotesk";
+    font-size:48px;
+    letter-spacing:-2px;
+    margin-bottom:15px;
+}
+
+.section-heading p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* ABOUT */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:30px;
+    backdrop-filter:blur(15px);
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(72,199,255,.25);
+    box-shadow:0 20px 60px rgba(0,0,0,.20);
+}
+
+.card h3{
+    margin-bottom:15px;
+    font-size:19px;
+}
+
+.card p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* EXPERIENCE */
+
+.timeline{
+    position:relative;
+    max-width:900px;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:8px;
+    top:0;
+    bottom:0;
+    width:1px;
+    background:linear-gradient(
+      transparent,
+      rgba(72,199,255,.5),
+      transparent
+    );
+}
+
+.timeline-item{
+    position:relative;
+    padding-left:45px;
+    margin-bottom:35px;
+}
+
+.timeline-dot{
+    position:absolute;
+    left:0;
+    top:5px;
+    width:17px;
+    height:17px;
+    border-radius:50%;
+    background:var(--blue);
+    box-shadow:0 0 20px rgba(72,199,255,.6);
+}
+
+.timeline-item h3{
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+.timeline-item .company{
+    color:var(--blue);
+    font-weight:600;
+    margin-bottom:12px;
+}
+
+.timeline-item p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+/* SKILLS */
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.skill{
+    margin-bottom:22px;
+}
+
+.skill-head{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:9px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.skill-head span:last-child{
+    color:var(--blue);
+}
+
+.bar{
+    height:8px;
+    background:rgba(255,255,255,.07);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.bar span{
+    display:block;
+    height:100%;
+    border-radius:20px;
+    background:linear-gradient(90deg,#45c9ff,#8c6cff);
+}
+
+/* PROJECTS */
+
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.project{
+    position:relative;
+    min-height:320px;
+    overflow:hidden;
+}
+
+.project-number{
+    font-size:12px;
+    color:var(--blue);
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:22px;
+}
+
+.project h3{
+    font-family:"Space Grotesk";
+    font-size:26px;
+    margin-bottom:15px;
+}
+
+.project p{
+    color:var(--muted);
+    line-height:1.75;
+    margin-bottom:20px;
+}
+
+.tech{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.tech span{
+    padding:7px 10px;
+    border-radius:8px;
+    background:rgba(72,199,255,.07);
+    border:1px solid rgba(72,199,255,.12);
+    color:#a9dcf4;
+    font-size:11px;
+    font-weight:700;
+}
+
+/* CERTIFICATIONS */
+
+.cert-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.cert{
+    padding:24px;
+}
+
+.cert-icon{
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.cert h3{
+    font-size:15px;
+    line-height:1.5;
+}
+
+.cert p{
+    margin-top:8px;
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+    max-width:900px;
+    margin:auto;
+}
+
+.contact h2{
+    font-family:"Space Grotesk";
+    font-size:55px;
+    letter-spacing:-2px;
+    margin-bottom:20px;
+}
+
+.contact p{
+    color:var(--muted);
+    line-height:1.8;
+    max-width:650px;
+    margin:0 auto 30px;
+}
+
+.socials{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.social{
+    text-decoration:none;
+    color:#dce5f2;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.04);
+    padding:12px 17px;
+    border-radius:10px;
+    font-size:13px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.social:hover{
+    transform:translateY(-4px);
+    border-color:rgba(72,199,255,.4);
+    color:var(--blue);
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--border);
+    padding:30px 7%;
+    display:flex;
+    justify-content:space-between;
+    color:#758399;
+    font-size:12px;
+}
+
+/* REVEAL */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    nav{
+        padding:0 5%;
+    }
+
+    nav ul{
+        display:none;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+        padding-top:130px;
+    }
+
+    .hero-description{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .buttons{
+        justify-content:center;
+    }
+
+    .profile-ring{
+        width:300px;
+        height:300px;
+    }
+
+    .profile{
+        width:270px;
+        height:270px;
+    }
+
+    .tag1{
+        left:-5px;
+    }
+
+    .tag2{
+        right:-5px;
+    }
+
+    .about-grid,
+    .skills-grid,
+    .projects-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cert-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-heading h2{
+        font-size:38px;
+    }
+
+    .contact h2{
+        font-size:40px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:10px;
+        text-align:center;
+    }
+}
+
+</style>
 </head>
-
 
 <body>
 
+<div class="cursor"></div>
 
-<!-- ==============================
-     NAVIGATION
-============================== -->
+<!-- NAVBAR -->
 
-<header>
-    <div class="container">
-        <nav>
+<nav>
 
-            <a href="#home" class="logo">
-                Rashna<span>.</span>
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-
-        </nav>
+    <div class="logo">
+        Rashna<span>.</span>
     </div>
-</header>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
 
 
-<!-- ==============================
-     HERO
-============================== -->
+<!-- HERO -->
 
 <section class="hero" id="home">
 
-    <div class="container">
+    <div class="reveal">
 
-        <div class="hero-grid">
+        <div class="badge">
+            <span class="badge-dot"></span>
+            Open to Data Analyst Opportunities
+        </div>
 
-            <div class="hero-content reveal">
+        <h1>
+            Hi, I'm
+            <span class="gradient-text">Rashna R.</span>
+        </h1>
 
-                <div class="badge">
-                    <span class="status-dot"></span>
-                    Open to Data Analyst Opportunities
-                </div>
+        <div class="hero-subtitle">
+            Aspiring Data Analyst ·
+            <span class="typing"></span>
+        </div>
 
-                <h1>
-                    Hi, I'm <span>Rashna R.</span>
-                </h1>
+        <p class="hero-description">
+            I transform raw data into meaningful insights using
+            Python, SQL, Excel, Power BI and data visualization.
+            I enjoy solving business problems through analytical
+            thinking and data-driven decision making.
+        </p>
 
-                <h2>
-                    Data Analyst | Turning Data Into Insights
-                </h2>
+        <div class="buttons">
 
-                <p>
-                    I transform raw data into meaningful insights using
-                    SQL, Python, Excel, Power BI and data visualization.
-                    I enjoy solving business problems through analytical
-                    thinking and data-driven decision making.
-                </p>
+            <a href="#projects" class="btn btn-primary">
+                Explore My Projects →
+            </a>
 
-                <div class="hero-buttons">
+            <button class="btn btn-secondary" onclick="speakIntro()">
+                🔊 Hear My Introduction
+            </button>
 
-                    <a href="#projects" class="btn btn-primary">
-                        Explore My Projects →
-                    </a>
+            <a href="Rashna_R_Resume.pdf"
+               class="btn btn-secondary"
+               target="_blank">
+                📄 View Resume
+            </a>
 
-                    <a href="#contact" class="btn btn-secondary">
-                        Let's Connect
-                    </a>
+        </div>
 
-                </div>
+    </div>
 
+
+    <!-- PROFILE -->
+
+    <div class="profile-area reveal">
+
+        <div class="profile-ring">
+
+            <div class="float-tag tag1">
+                Python · SQL
             </div>
 
-
-            <div class="profile-wrapper reveal">
-
-                <div class="profile-glow"></div>
-
-                <div class="profile-card">
-
-                    <!-- YOUR IMAGE -->
-                    <img src="profile.png"
-                         alt="Rashna R - Data Analyst">
-
-                    <div class="profile-label">
-
-                        <strong>Rashna R</strong>
-
-                        <small>
-                            Data Analyst • Analytics • Visualization
-                        </small>
-
-                    </div>
-
-                </div>
-
+            <div class="float-tag tag2">
+                Power BI · Analytics
             </div>
+
+            <div class="float-tag tag3">
+                Machine Learning
+            </div>
+
+            <img
+                src="profile.png"
+                alt="Rashna R"
+                class="profile"
+            >
 
         </div>
 
@@ -802,84 +820,56 @@
 </section>
 
 
-
-<!-- ==============================
-     ABOUT
-============================== -->
+<!-- ABOUT -->
 
 <section id="about">
 
-    <div class="container">
+    <div class="section-heading reveal">
 
-        <div class="section-title reveal">
+        <div class="eyebrow">
+            About Me
+        </div>
 
-            <span>About Me</span>
+        <h2>
+            Turning curiosity into
+            <span class="gradient-text">data-driven insights.</span>
+        </h2>
 
-            <h2>Analytical Mind. Business Impact.</h2>
+        <p>
+            I am an aspiring Data Analyst with a strong foundation
+            in data analytics, visualization, machine learning and
+            Python programming.
+        </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="card reveal">
+
+            <h3>My Approach</h3>
 
             <p>
-                A data-focused professional passionate about discovering
-                patterns, solving problems and communicating insights.
+                I enjoy exploring datasets, identifying patterns,
+                cleaning and transforming data, building meaningful
+                visualizations and communicating insights clearly.
+                My goal is to turn complex data into information
+                that supports better decisions.
             </p>
 
         </div>
 
 
-        <div class="about-grid">
+        <div class="card reveal">
 
-            <div class="about-text reveal">
+            <h3>What I Work With</h3>
 
-                <h3>
-                    I don't just analyze data.
-                    <span class="highlight">
-                        I find the story behind it.
-                    </span>
-                </h3>
-
-                <p>
-                    My focus is on transforming complex datasets into
-                    clear, actionable information that supports better
-                    business decisions.
-                </p>
-
-                <p>
-                    I work with data cleaning, exploratory analysis,
-                    SQL queries, dashboards, visualization and
-                    business-oriented reporting.
-                </p>
-
-                <p>
-                    I continuously improve my analytical and technical
-                    skills by building practical projects and solving
-                    real-world data problems.
-                </p>
-
-            </div>
-
-
-            <div class="stats reveal">
-
-                <div class="stat-card">
-                    <h3>SQL</h3>
-                    <p>Data querying & analysis</p>
-                </div>
-
-                <div class="stat-card">
-                    <h3>Python</h3>
-                    <p>Analysis & automation</p>
-                </div>
-
-                <div class="stat-card">
-                    <h3>Power BI</h3>
-                    <p>Interactive dashboards</p>
-                </div>
-
-                <div class="stat-card">
-                    <h3>Excel</h3>
-                    <p>Data analysis & reporting</p>
-                </div>
-
-            </div>
+            <p>
+                Python, SQL, Excel, Power BI, Pandas, NumPy,
+                Matplotlib, Seaborn, Scikit-learn, Machine Learning,
+                Exploratory Data Analysis and Generative AI.
+            </p>
 
         </div>
 
@@ -888,77 +878,175 @@
 </section>
 
 
+<!-- EXPERIENCE -->
 
-<!-- ==============================
-     SKILLS
-============================== -->
+<section id="experience">
+
+    <div class="section-heading reveal">
+
+        <div class="eyebrow">
+            Experience
+        </div>
+
+        <h2>
+            Learning through
+            <span class="gradient-text">real projects.</span>
+        </h2>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <div class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <h3>Web Designing Intern</h3>
+
+            <div class="company">
+                TCDA
+            </div>
+
+            <p>
+                Learned basic web development concepts,
+                HTML and CSS fundamentals and standard
+                web development practices.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <h3>Python Programming / Data Science Intern</h3>
+
+            <div class="company">
+                MAKE VISION AI SOFTWARE & DEVELOPMENTS
+            </div>
+
+            <p>
+                Gained practical exposure to Python programming,
+                data analysis, data visualization and machine
+                learning fundamentals through mini-project work.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
 
 <section id="skills">
 
-    <div class="container">
+    <div class="section-heading reveal">
 
-        <div class="section-title reveal">
+        <div class="eyebrow">
+            Technical Skills
+        </div>
 
-            <span>Technical Skills</span>
+        <h2>
+            Tools I use to
+            <span class="gradient-text">work with data.</span>
+        </h2>
 
-            <h2>Tools I Work With</h2>
+    </div>
 
-            <p>
-                Technologies and analytical tools used to transform
-                raw data into useful business insights.
-            </p>
+
+    <div class="skills-grid">
+
+        <div class="card reveal">
+
+            <div class="skill">
+
+                <div class="skill-head">
+                    <span>Python</span>
+                    <span>90%</span>
+                </div>
+
+                <div class="bar">
+                    <span style="width:90%"></span>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-head">
+                    <span>SQL</span>
+                    <span>85%</span>
+                </div>
+
+                <div class="bar">
+                    <span style="width:85%"></span>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-head">
+                    <span>Power BI</span>
+                    <span>85%</span>
+                </div>
+
+                <div class="bar">
+                    <span style="width:85%"></span>
+                </div>
+
+            </div>
 
         </div>
 
 
-        <div class="skills-grid">
+        <div class="card reveal">
 
-            <div class="skill-card reveal">
-                <div class="skill-icon">🐍</div>
-                <h3>Python</h3>
-                <p>Pandas • NumPy • Analysis</p>
+            <div class="skill">
+
+                <div class="skill-head">
+                    <span>Data Analysis / EDA</span>
+                    <span>90%</span>
+                </div>
+
+                <div class="bar">
+                    <span style="width:90%"></span>
+                </div>
+
             </div>
 
-            <div class="skill-card reveal">
-                <div class="skill-icon">🗄️</div>
-                <h3>SQL</h3>
-                <p>Queries • Joins • Aggregations</p>
+
+            <div class="skill">
+
+                <div class="skill-head">
+                    <span>Machine Learning</span>
+                    <span>78%</span>
+                </div>
+
+                <div class="bar">
+                    <span style="width:78%"></span>
+                </div>
+
             </div>
 
-            <div class="skill-card reveal">
-                <div class="skill-icon">📊</div>
-                <h3>Power BI</h3>
-                <p>Dashboards • DAX • Visualization</p>
-            </div>
 
-            <div class="skill-card reveal">
-                <div class="skill-icon">📗</div>
-                <h3>Excel</h3>
-                <p>Pivot Tables • Formulas • Analysis</p>
-            </div>
+            <div class="skill">
 
-            <div class="skill-card reveal">
-                <div class="skill-icon">📈</div>
-                <h3>Data Visualization</h3>
-                <p>Charts • KPIs • Storytelling</p>
-            </div>
+                <div class="skill-head">
+                    <span>Data Visualization</span>
+                    <span>88%</span>
+                </div>
 
-            <div class="skill-card reveal">
-                <div class="skill-icon">🧹</div>
-                <h3>Data Cleaning</h3>
-                <p>Preparation • Validation</p>
-            </div>
+                <div class="bar">
+                    <span style="width:88%"></span>
+                </div>
 
-            <div class="skill-card reveal">
-                <div class="skill-icon">🔎</div>
-                <h3>EDA</h3>
-                <p>Patterns • Trends • Insights</p>
-            </div>
-
-            <div class="skill-card reveal">
-                <div class="skill-icon">💡</div>
-                <h3>Business Analysis</h3>
-                <p>Insights • Decision Making</p>
             </div>
 
         </div>
@@ -968,170 +1056,267 @@
 </section>
 
 
-
-<!-- ==============================
-     PROJECTS
-============================== -->
+<!-- PROJECTS -->
 
 <section id="projects">
 
-    <div class="container">
+    <div class="section-heading reveal">
 
-        <div class="section-title reveal">
+        <div class="eyebrow">
+            Featured Projects
+        </div>
 
-            <span>Featured Work</span>
+        <h2>
+            Projects that demonstrate
+            <span class="gradient-text">my analytical thinking.</span>
+        </h2>
 
-            <h2>Projects That Tell a Story</h2>
+        <p>
+            A selection of academic and capstone projects
+            covering machine learning, dashboards,
+            predictive analytics and computer vision.
+        </p>
+
+    </div>
+
+
+    <div class="projects-grid">
+
+
+        <!-- PROJECT 1 -->
+
+        <div class="card project reveal">
+
+            <div class="project-number">
+                PROJECT 01 · MACHINE LEARNING
+            </div>
+
+            <h3>
+                Machine Failure Prediction
+            </h3>
 
             <p>
-                Practical analytics projects demonstrating data cleaning,
-                analysis, visualization and business insights.
+                Developed a machine-failure classification model
+                using air temperature, process temperature,
+                rotational speed, torque and tool-wear features.
+                Performed data preprocessing, EDA, correlation
+                analysis and stratified train-test splitting.
+            </p>
+
+            <div class="tech">
+                <span>Python</span>
+                <span>Pandas</span>
+                <span>Scikit-learn</span>
+                <span>XGBoost</span>
+                <span>SHAP</span>
+                <span>Streamlit</span>
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 2 -->
+
+        <div class="card project reveal">
+
+            <div class="project-number">
+                PROJECT 02 · POWER BI
+            </div>
+
+            <h3>
+                Traffic Accident Dashboard
+            </h3>
+
+            <p>
+                Developed an interactive dashboard to analyze
+                US traffic accident data from 2016–2023.
+                Created state-level, city-level and trend
+                visualizations with KPI cards, slicers,
+                dynamic Top-N analysis and Pareto analysis.
+            </p>
+
+            <div class="tech">
+                <span>Power BI</span>
+                <span>DAX</span>
+                <span>Data Visualization</span>
+                <span>KPI</span>
+                <span>Dashboard</span>
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 3 -->
+
+        <div class="card project reveal">
+
+            <div class="project-number">
+                PROJECT 03 · PREDICTIVE ANALYTICS
+            </div>
+
+            <h3>
+                Medical / Health Insurance Premium Prediction
+            </h3>
+
+            <p>
+                Developed a regression model to predict health
+                insurance premiums based on customer demographic
+                and health-related factors. Performed preprocessing,
+                exploratory analysis and model evaluation.
+            </p>
+
+            <div class="tech">
+                <span>Python</span>
+                <span>Pandas</span>
+                <span>NumPy</span>
+                <span>Scikit-learn</span>
+                <span>EDA</span>
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 4 -->
+
+        <div class="card project reveal">
+
+            <div class="project-number">
+                PROJECT 04 · COMPUTER VISION
+            </div>
+
+            <h3>
+                Animal Detection in Farming Areas
+            </h3>
+
+            <p>
+                Developed a CNN-based detection system to identify
+                animals in farming areas from images. Performed
+                image preprocessing and classification using
+                Python and deep-learning techniques.
+            </p>
+
+            <div class="tech">
+                <span>Python</span>
+                <span>CNN</span>
+                <span>TensorFlow</span>
+                <span>OpenCV</span>
+                <span>PyTorch</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CERTIFICATIONS -->
+
+<section id="certifications">
+
+    <div class="section-heading reveal">
+
+        <div class="eyebrow">
+            Certifications
+        </div>
+
+        <h2>
+            Continuous
+            <span class="gradient-text">learning.</span>
+        </h2>
+
+    </div>
+
+
+    <div class="cert-grid">
+
+
+        <div class="card cert reveal">
+
+            <div class="cert-icon">🤖</div>
+
+            <h3>
+                Generative AI for Business and Professionals
+            </h3>
+
+            <p>
+                IBM SkillsBuild
             </p>
 
         </div>
 
 
-        <div class="projects-grid">
+        <div class="card cert reveal">
+
+            <div class="cert-icon">📊</div>
+
+            <h3>
+                Data Visualization with Python
+            </h3>
+
+            <p>
+                IBM SkillsBuild
+            </p>
+
+        </div>
 
 
-            <!-- PROJECT 1 -->
+        <div class="card cert reveal">
 
-            <article class="project-card reveal">
+            <div class="cert-icon">🐍</div>
 
-                <div class="project-image">
+            <h3>
+                Data Analysis with Python
+            </h3>
 
-                    <img
-                        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80"
-                        alt="Data analytics dashboard">
+            <p>
+                IBM SkillsBuild
+            </p>
 
-                    <div class="project-overlay"></div>
-
-                </div>
-
-                <div class="project-content">
-
-                    <span class="project-tag">
-                        DATA ANALYTICS
-                    </span>
-
-                    <h3>
-                        Project 01 — Data Analysis
-                    </h3>
-
-                    <p>
-                        An end-to-end analytical project focused on
-                        understanding patterns, trends and key business
-                        insights from structured data.
-                    </p>
-
-                    <div class="tech-stack">
-                        <span>Python</span>
-                        <span>Pandas</span>
-                        <span>Excel</span>
-                        <span>Visualization</span>
-                    </div>
-
-                    <a href="#" class="project-link">
-                        View Project →
-                    </a>
-
-                </div>
-
-            </article>
+        </div>
 
 
+        <div class="card cert reveal">
 
-            <!-- PROJECT 2 -->
+            <div class="cert-icon">💻</div>
 
-            <article class="project-card reveal">
+            <h3>
+                Python Data Science with MongoDB
+            </h3>
 
-                <div class="project-image">
+            <p>
+                Python / Data Science
+            </p>
 
-                    <img
-                        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80"
-                        alt="Business intelligence dashboard">
-
-                    <div class="project-overlay"></div>
-
-                </div>
-
-                <div class="project-content">
-
-                    <span class="project-tag">
-                        BUSINESS INTELLIGENCE
-                    </span>
-
-                    <h3>
-                        Project 02 — Dashboard Analysis
-                    </h3>
-
-                    <p>
-                        Interactive dashboard designed to convert business
-                        data into easy-to-understand KPIs, trends and
-                        decision-making insights.
-                    </p>
-
-                    <div class="tech-stack">
-                        <span>Power BI</span>
-                        <span>DAX</span>
-                        <span>Excel</span>
-                        <span>KPIs</span>
-                    </div>
-
-                    <a href="#" class="project-link">
-                        View Project →
-                    </a>
-
-                </div>
-
-            </article>
+        </div>
 
 
+        <div class="card cert reveal">
 
-            <!-- PROJECT 3 -->
+            <div class="cert-icon">🧠</div>
 
-            <article class="project-card reveal">
+            <h3>
+                Python Programming Internship
+            </h3>
 
-                <div class="project-image">
+            <p>
+                MAKE VISION AI SOFTWARE & DEVELOPMENTS
+            </p>
 
-                    <img
-                        src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1000&q=80"
-                        alt="Customer support analytics">
+        </div>
 
-                    <div class="project-overlay"></div>
 
-                </div>
+        <div class="card cert reveal">
 
-                <div class="project-content">
+            <div class="cert-icon">🌐</div>
 
-                    <span class="project-tag">
-                        ANALYTICS PROJECT
-                    </span>
+            <h3>
+                Web Designing Internship
+            </h3>
 
-                    <h3>
-                        Project 03 — Customer Data Analysis
-                    </h3>
-
-                    <p>
-                        Analytical solution focused on customer-related
-                        data to identify patterns, performance indicators
-                        and opportunities for improvement.
-                    </p>
-
-                    <div class="tech-stack">
-                        <span>SQL</span>
-                        <span>Python</span>
-                        <span>Pandas</span>
-                        <span>Power BI</span>
-                    </div>
-
-                    <a href="#" class="project-link">
-                        View Project →
-                    </a>
-
-                </div>
-
-            </article>
+            <p>
+                TCDA
+            </p>
 
         </div>
 
@@ -1140,132 +1325,69 @@
 </section>
 
 
-
-<!-- ==============================
-     ANALYTICS WORKFLOW
-============================== -->
-
-<section>
-
-    <div class="container">
-
-        <div class="section-title reveal">
-
-            <span>My Approach</span>
-
-            <h2>From Raw Data to Real Insights</h2>
-
-        </div>
-
-
-        <div class="process-grid">
-
-            <div class="process-card reveal">
-
-                <div class="process-number">01</div>
-
-                <h3>Understand</h3>
-
-                <p>
-                    Understand the business problem, objectives,
-                    dataset and analytical requirements.
-                </p>
-
-            </div>
-
-
-            <div class="process-card reveal">
-
-                <div class="process-number">02</div>
-
-                <h3>Prepare</h3>
-
-                <p>
-                    Clean, validate and transform raw data
-                    into analysis-ready datasets.
-                </p>
-
-            </div>
-
-
-            <div class="process-card reveal">
-
-                <div class="process-number">03</div>
-
-                <h3>Analyze</h3>
-
-                <p>
-                    Explore patterns, trends, relationships and
-                    important performance indicators.
-                </p>
-
-            </div>
-
-
-            <div class="process-card reveal">
-
-                <div class="process-number">04</div>
-
-                <h3>Communicate</h3>
-
-                <p>
-                    Present insights through dashboards,
-                    visualizations and clear recommendations.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ==============================
-     CONTACT
-============================== -->
+<!-- CONTACT -->
 
 <section id="contact">
 
-    <div class="container">
+    <div class="contact reveal">
 
-        <div class="contact-box reveal">
+        <div class="eyebrow">
+            Let's Connect
+        </div>
 
-            <span class="section-title">
-                <span>Let's Connect</span>
-            </span>
+        <h2>
+            Have data?
+            <span class="gradient-text">Let's create insight.</span>
+        </h2>
 
-            <h2>
-                Have a Data Problem?
-                Let's Talk.
-            </h2>
+        <p>
+            I am currently looking for opportunities where I can
+            apply my analytical skills, learn from real-world
+            problems and contribute through data-driven solutions.
+        </p>
 
-            <p>
-                I'm interested in Data Analyst opportunities,
-                analytics projects and opportunities where I can
-                turn data into meaningful business insights.
-            </p>
 
-            <div class="contact-links">
+        <div class="buttons"
+             style="justify-content:center;margin-bottom:25px;">
 
-                <!-- Replace # with your real links -->
+            <a
+                href="mailto:mailtorashna0303@gmail.com"
+                class="btn btn-primary">
+                ✉ Email Me
+            </a>
 
-                <a href="#" class="btn btn-primary">
-                    LinkedIn
-                </a>
+            <a
+                href="Rashna_R_Resume.pdf"
+                target="_blank"
+                class="btn btn-secondary">
+                📄 View Resume
+            </a>
 
-                <a href="#" class="btn btn-secondary">
-                    GitHub
-                </a>
+        </div>
 
-                <a href="mailto:your-email@example.com"
-                   class="btn btn-secondary">
-                    Email Me
-                </a>
 
-            </div>
+        <div class="socials">
+
+            <a
+                href="https://www.linkedin.com/in/rashna-r"
+                target="_blank"
+                class="social">
+                LinkedIn
+            </a>
+
+            <a
+                href="https://github.com/Rashna-R"
+                target="_blank"
+                class="social">
+                GitHub
+            </a>
+
+            <a
+                href="https://medium.com/@rashna0303"
+                target="_blank"
+                class="social">
+                Medium
+            </a>
 
         </div>
 
@@ -1274,75 +1396,167 @@
 </section>
 
 
-
-<!-- ==============================
-     FOOTER
-============================== -->
+<!-- FOOTER -->
 
 <footer>
 
-    <div class="container">
+    <div>
+        © 2026 Rashna R
+    </div>
 
-        <p>
-            © 2026 Rashna R. Built with HTML, CSS & JavaScript.
-        </p>
-
+    <div>
+        Data Analyst · Python · SQL · Power BI
     </div>
 
 </footer>
 
 
-
-<!-- ==============================
-     JAVASCRIPT
-============================== -->
-
 <script>
 
-    const reveals = document.querySelectorAll(".reveal");
+/* CURSOR GLOW */
 
-    const revealObserver = new IntersectionObserver(
-        (entries) => {
+const cursor = document.querySelector(".cursor");
 
-            entries.forEach((entry) => {
+document.addEventListener("mousemove",(e)=>{
 
-                if (entry.isIntersecting) {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
 
-                    entry.target.classList.add("active");
+});
 
-                    revealObserver.unobserve(entry.target);
 
-                }
+/* TYPING EFFECT */
 
-            });
+const words = [
+    "Turning Data Into Insights",
+    "Python & SQL",
+    "Power BI & Visualization",
+    "Machine Learning",
+    "Data-Driven Problem Solving"
+];
 
-        },
-        {
-            threshold: 0.12
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+const typing = document.querySelector(".typing");
+
+function typeEffect(){
+
+    const word = words[wordIndex];
+
+    if(!deleting){
+
+        typing.textContent = word.substring(
+            0,
+            charIndex + 1
+        );
+
+        charIndex++;
+
+        if(charIndex === word.length){
+
+            deleting = true;
+
+            setTimeout(typeEffect,1500);
+            return;
         }
+
+    }else{
+
+        typing.textContent = word.substring(
+            0,
+            charIndex - 1
+        );
+
+        charIndex--;
+
+        if(charIndex === 0){
+
+            deleting = false;
+
+            wordIndex++;
+
+            if(wordIndex === words.length){
+                wordIndex = 0;
+            }
+
+        }
+
+    }
+
+    setTimeout(
+        typeEffect,
+        deleting ? 45 : 80
     );
 
+}
 
-    reveals.forEach((element) => {
-
-        revealObserver.observe(element);
-
-    });
+typeEffect();
 
 
-    /* Prevent empty project links from jumping */
-    document.querySelectorAll('a[href="#"]').forEach(link => {
+/* SCROLL REVEAL */
 
-        link.addEventListener("click", function(event) {
+const observer = new IntersectionObserver(
+    (entries)=>{
+        entries.forEach(entry=>{
 
-            event.preventDefault();
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+            }
 
         });
+    },
+    {
+        threshold:.12
+    }
+);
 
-    });
+document
+    .querySelectorAll(".reveal")
+    .forEach(el=>observer.observe(el));
+
+
+/* VOICE INTRODUCTION */
+
+function speakIntro(){
+
+    if(!("speechSynthesis" in window)){
+
+        alert("Your browser does not support voice introduction.");
+
+        return;
+    }
+
+    speechSynthesis.cancel();
+
+    const intro = `
+        Hi, I'm Rashna R.
+        I am an aspiring Data Analyst with a strong foundation
+        in Python, SQL, Power BI, data visualization and machine learning.
+        I enjoy exploring data, finding meaningful patterns,
+        and converting information into useful insights.
+        My portfolio includes machine failure prediction,
+        traffic accident dashboard analysis,
+        medical insurance premium prediction,
+        and animal detection using computer vision.
+        I am currently looking for opportunities to grow
+        as a data analyst and contribute to data-driven solutions.
+    `;
+
+    const speech = new SpeechSynthesisUtterance(intro);
+
+    speech.rate = .92;
+    speech.pitch = 1;
+    speech.volume = 1;
+
+    speechSynthesis.speak(speech);
+
+}
 
 </script>
-
 
 </body>
 </html>
